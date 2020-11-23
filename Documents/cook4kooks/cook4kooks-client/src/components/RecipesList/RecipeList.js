@@ -1,19 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import RecipeCard from './RecipeCard';
-import {Link, useRouteMatch, Route, useHistory, Switch} from 'react-router-dom';
+import {Link, useRouteMatch} from 'react-router-dom';
 
 
 
 const RecipeList = ({getRecipesList, changeRecipe, recipesList}) => {
     const {path, url} = useRouteMatch();
-    const [recipes, setRecipes] = useState([]);
     const [errRecipes, setErrRecipes] = useState(null);
     const [loadingRecipes, setLoadingRecipes] = useState(true);
     async function getRecipes (){
         try{
             setLoadingRecipes(true);
             await getRecipesList();
-            setRecipes(recipesList);
         } catch (err){
             setErrRecipes(err);
         } finally {
@@ -24,11 +22,10 @@ const RecipeList = ({getRecipesList, changeRecipe, recipesList}) => {
     useEffect( () => {
         getRecipes();
     }, []);
-    console.log(recipes)
     return (
         <div>
             {
-             recipes.map((recipe,i) => {
+             recipesList.map((recipe,i) => {
                 return( 
                     <div>
                         <Link to={`${url}/${recipe.id}`}
