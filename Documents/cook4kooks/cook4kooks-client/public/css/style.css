@@ -10,11 +10,12 @@ body, html {
 * {
 	font-family: 'Architects Daughter', cursive;
 }
+
 h2 {
 	text-transform: uppercase;
-	margin: 0 0 20px 0;
+	margin: 20px 0 20px 0 ;
 	font-weight: 800;
-	font-size: 36px;
+	font-size: 28px;
 	color: #333;
 }
 h3 {
@@ -69,6 +70,7 @@ hr {
 }
 .container{ /*a class for the styling of all the containers in the web app*/
 	padding: 1px;
+	margin-left: 10px;
 }
 /* Navigation */
 #menu {

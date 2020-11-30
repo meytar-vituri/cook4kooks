@@ -11,14 +11,17 @@ const Recipe = ({recipe, timerCreate}) =>{
         return true;
     }
     if (isEmpty(recipe)){
-        return <h1>go back to recipes and select a recipe</h1>
-        // later - load the recipe in this page with request to the server,
-        // make it possible dirictly with recipeID in the URL
+        return(
+            <div className="container">
+                <h1>go back to recipes and select a recipe</h1>
+            </div>
+        ) 
     }else{
         return(
             <div className="container"> 
                 <button onClick={() =>timerCreate(recipe.steps)} value={recipe.id}>start timer</button>
-                <h2>Ingredient</h2>
+                <h2>{recipe.name}</h2>
+                <h3 style={{textDecorationLine: 'underline'}}>Ingredient</h3>
                 {
                 recipe.ingredients.map((ing,i) => {
                     return( 
@@ -30,19 +33,18 @@ const Recipe = ({recipe, timerCreate}) =>{
                             );
                 })
                 }
-                <h2>steps</h2>
+                <h3 style={{textDecorationLine: 'underline'}}>steps</h3>
                 {
                  recipe.steps.map((step,i) => {
                     return( 
                         <Step
-                            id={step.id}
+                            number={i+1}
                             text = {step.text}
                             time = {step.time}
                             />
                             );
                 })
                 }
-                <h2>steps</h2> 
             </div>
         );
     

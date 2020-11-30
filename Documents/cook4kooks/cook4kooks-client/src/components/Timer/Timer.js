@@ -1,5 +1,4 @@
 import React from "react";
-import CountdownTimer from "react-component-countdown-timer";
 import Timer from 'react-compound-timer';
 
 class TimerComp extends React.Component {
@@ -25,14 +24,14 @@ class TimerComp extends React.Component {
         {
              timerSteps.map((step,i) => {
                 return (step.time!==0?
-                  <button onClick={() => this.onBtnClick(i)}>step {step.id}</button> : '' );
+                  <button onClick={() => this.onBtnClick(i)}>step {i+1}</button> : '' );
                       })
                               
         }   
         {
         timerIndex===-1?
           <Timer
-            initialTime={0}
+            initialTime={60}
             startImmediately={false}
             key={timerIndex}
           >
@@ -55,7 +54,7 @@ class TimerComp extends React.Component {
         </Timer>
         :
           <Timer
-            initialTime={1000*timerSteps[timerIndex].time}
+            initialTime={1000*60*timerSteps[timerIndex].time}
             startImmediately={false}
             direction="backward"
             lastUnit="h"

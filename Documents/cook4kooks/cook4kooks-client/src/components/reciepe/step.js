@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Step = ({id, text}) =>{
+const Step = ({number, text}) =>{
     return(
         <div>
-            <h3>{`${id}. ${text}`}</h3>
+            <h4>{`${number}. ${text}`}</h4>
             {/* <button onClick={timerChange} value={time}>start timer</button> */}
         </div>
     );

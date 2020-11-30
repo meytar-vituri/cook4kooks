@@ -21,18 +21,19 @@ const RecipeList = ({getRecipesList, changeRecipe, recipesList}) => {
 
     useEffect( () => {
         getRecipes();
+        
     }, []);
     return (
         <div>
             {
              recipesList.map((recipe,i) => {
                 return( 
-                    <div>
-                        <Link to={`${url}/${recipe.id}`}
-                        onClick={()=>changeRecipe(recipe.id)}>
+                    <div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow5">
+                        <Link to={`${url}/${recipe._id}`}
+                        onClick={()=>changeRecipe(recipe)}>
                             <RecipeCard key={i}
                                 name={recipe.name}
-                                id={recipe.id}
+                                id={recipe._id}
                             />
                         </Link>
                     </div>

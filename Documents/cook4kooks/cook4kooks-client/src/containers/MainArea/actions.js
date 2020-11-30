@@ -28,10 +28,10 @@ export const  requestRecipesList = () => (dispatch) =>{
         })
 }
 
-export const requestRecipeById = () => (dispatch) =>{
-    dispatch({type: REQUEST_RECIPE_BY_ID_PENDING});
-    fetch('') //add the url according to the server
-        .then(response => response.json())
-        .then(data => dispatch({type:REQUEST_RECIPE_BY_ID_SUCCESS, payload:data}))
-        .catch(error => dispatch({type:REQUEST_RECIPE_BY_ID_FAILED, payload:error}))
-}
+// export const requestRecipeById = () => (dispatch) =>{
+//     dispatch({type: REQUEST_RECIPE_BY_ID_PENDING});
+//     fetch('') //add the url according to the server
+//         .then(response => response.json())
+//         .then(data => dispatch({type:REQUEST_RECIPE_BY_ID_SUCCESS, payload:data}))
+//         .catch(error => dispatch({type:REQUEST_RECIPE_BY_ID_FAILED, payload:error}))
+// }

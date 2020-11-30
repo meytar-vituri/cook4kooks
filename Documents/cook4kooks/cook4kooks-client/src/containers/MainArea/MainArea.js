@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import JsonData from '../../data/data.json';
-import {setRecipe, setTimerSteps, requestRecipesList, requestRecipeById} from './actions';
+import {setRecipe, setTimerSteps, requestRecipesList} from './actions';
 import {Switch, Route} from 'react-router-dom';
 import About from '../../components/About';
 import AboutMe from '../../components/AboutMe';
@@ -16,7 +16,6 @@ const mapStateToProps = (state) =>{
   return{
     timerSteps: state.changeTimer.timerSteps,
     recipe: state.changeRecipe.recipe,
-    isPendingRecipe: state.changeRecipe.isPending,
     errorRecipe: state.changeRecipe.error,
     isPendingRecipesList: state.changeRecipesList.isPending,
     errorRecipesList: state.changeRecipesList.error,
@@ -26,8 +25,7 @@ const mapStateToProps = (state) =>{
 const mapDispatchToProps = (dispatch) =>{
   return{
     onTimerCreate: (timerSteps) => dispatch(setTimerSteps(timerSteps)),
-    onRecipeChange: (id) => dispatch(setRecipe(id)),
-    onRecipeRequest: (id) => dispatch(requestRecipeById(id)),
+    onRecipeChange: (recipe) => dispatch(setRecipe(recipe)),
     onRecipesListRequest: () => dispatch(requestRecipesList())
   }
 }

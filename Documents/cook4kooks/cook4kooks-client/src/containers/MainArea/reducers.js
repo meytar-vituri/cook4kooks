@@ -19,22 +19,17 @@ export const changeTimer = (state = initialStateTimer, action ={}) =>{
 }
 
 const initialStateRecipe = {
-    isPending: false,
     recipe: {},
     error: ''
 }
 
 export const changeRecipe = (state = initialStateRecipe, action ={}) =>{
     switch (action.type){
-        case REQUEST_RECIPE_BY_ID_PENDING:
-            return Object.assign({}, state, {isPending: true});
-        case REQUEST_RECIPE_BY_ID_SUCCESS:
-            return Object.assign({}, state, {recipe:action.payload, isPending:false})
-        case REQUEST_RECIPE_BY_ID_FAILED:
-            return Object.assign({}, state, {error:action.payload, isPending:false})
+        case CHANGE_RECIPE:
+            return Object.assign({}, state, {recipe:action.payload});
         default:
             return state;
-    }    
+            }   
 }
 
 const initialStateRecipesList = {
