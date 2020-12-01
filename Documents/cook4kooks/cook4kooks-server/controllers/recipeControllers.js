@@ -20,6 +20,7 @@ export const index = (req, res) => {
 export const create = (req, res) => {
     var recipe = new recipeModel ();
     recipe.name = req.body.name? req.body.name : recipe.name;
+    recipe.tags = req.body.tags;
     recipe.ingredients = req.body.ingredients;
     recipe.steps = req.body.steps;
 
@@ -33,15 +34,15 @@ export const create = (req, res) => {
         });
     });
 };
-
-export const view = (req, res) => {
-    recipeModel.findById(req.params.recipe_id, (err, recipe) => {
+//req.params.recipe_id
+export const viewByTag = (req, res) => {
+    recipeModel.find({tags:{$elemMatch: { $eq: req.params.recipe_tag}}}, (err, recipes) => {
         if (err){
             res.send(err);
         }
         res.json({
-            message: "recipe details loading...",
-            data: recipe
+            message: "recipes loading...",
+            data: recipes
         });
     });
 };

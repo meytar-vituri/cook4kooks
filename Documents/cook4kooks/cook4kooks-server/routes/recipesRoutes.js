@@ -1,6 +1,5 @@
 import express from 'express';
-import {index, view, create} from '../controllers/recipeControllers.js';
-// import Recipe from '../models/Recipe';
+import {index, viewByTag, create} from '../controllers/recipeControllers.js';
 
 const recipesRouter = express.Router();
 
@@ -15,8 +14,8 @@ recipesRouter.route('/recipes')
     .get(index)
     .post(create);
 
-recipesRouter.route('/recipes/:recipe_id')
-    .get(view);
+recipesRouter.route('/recipes/:recipe_tag')
+    .get(viewByTag);
 // router.get('/:recipeId', (req, res) =>{
 //     const  recipeId  = parseInt(req.params.recipeId);
 //     let found = false;
