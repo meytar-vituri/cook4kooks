@@ -34,7 +34,7 @@ export const create = (req, res) => {
         });
     });
 };
-//req.params.recipe_id
+
 export const viewByTag = (req, res) => {
     recipeModel.find({tags:{$elemMatch: { $eq: req.params.recipe_tag}}}, (err, recipes) => {
         if (err){

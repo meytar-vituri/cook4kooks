@@ -1,7 +1,7 @@
 import {CHANGE_TIMER_STEPS,
     CHANGE_RECIPE,
     REQUEST_RECIPESLIST_SUCCESS, REQUEST_RECIPESLIST_PENDING, REQUEST_RECIPESLIST_FAILED,
-    REQUEST_RECIPE_BY_ID_SUCCESS, REQUEST_RECIPE_BY_ID_PENDING, REQUEST_RECIPE_BY_ID_FAILED
+    REQUEST_RECIPES_BY_TAG_PENDING, REQUEST_RECIPES_BY_TAG_SUCCESS, REQUEST_RECIPES_BY_TAG_FAILED
     } from './constants';
 
 const initialStateTimer = {
@@ -43,9 +43,15 @@ export const changeRecipesList = (state = initialStateRecipesList, action ={}) =
         case REQUEST_RECIPESLIST_PENDING:
             return Object.assign({}, state, {isPending: true});
         case REQUEST_RECIPESLIST_SUCCESS:
-            return Object.assign({}, state, {recipesList:action.payload.data, isPending:false})
+            return Object.assign({}, state, {recipesList:action.payload.data, isPending:false});
         case REQUEST_RECIPESLIST_FAILED:
-            return Object.assign({}, state, {error:action.payload, isPending:false})
+            return Object.assign({}, state, {error:action.payload, isPending:false});
+        case REQUEST_RECIPES_BY_TAG_PENDING:
+            return Object.assign({}, state, {isPending: true});
+        case REQUEST_RECIPES_BY_TAG_SUCCESS:
+            return Object.assign({}, state, {recipesList:action.payload.data, isPending:false});
+        case REQUEST_RECIPES_BY_TAG_FAILED:
+            return Object.assign({}, state, {error:action.payload, isPending:false});
         default:
             return state;
     }    

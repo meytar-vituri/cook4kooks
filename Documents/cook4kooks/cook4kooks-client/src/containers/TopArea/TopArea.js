@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Logo from '../../components/logo';
 import TimerComp from '../../components/Timer/Timer';
 import Navigation from '../../components/navigation';
-import JsonData from '../../data/data.json';
 
 const mapStateToProps = (state) =>{
   return{
@@ -15,16 +14,6 @@ const mapStateToProps = (state) =>{
 
 
 class TopArea extends Component {
-  state = {
-    landingPageData: {},
-  }
-  getlandingPageData() {
-    this.setState({landingPageData : JsonData})
-  }
-
-  componentDidMount() {
-    this.getlandingPageData();
-  }
 
   render() {
     const { timerSteps, timerInit} = this.props;

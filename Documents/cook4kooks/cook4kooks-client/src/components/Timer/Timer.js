@@ -1,5 +1,6 @@
 import React from "react";
 import Timer from 'react-compound-timer';
+import styles from './Timer.css';
 
 class TimerComp extends React.Component {
   constructor(props){
@@ -31,8 +32,9 @@ class TimerComp extends React.Component {
         {
         timerIndex===-1?
           <Timer
-            initialTime={60}
+            initialTime={0}
             startImmediately={false}
+            direction="backward"
             key={timerIndex}
           >
             {({ start, resume, pause, stop, reset, timerState }) => (
@@ -72,10 +74,10 @@ class TimerComp extends React.Component {
           >
             {({ start, resume, pause, stop, reset, timerState }) => (
                 <React.Fragment>
-                    <div>
-                        <Timer.Hours /> hours
-                        <Timer.Minutes /> minutes
-                        <Timer.Seconds /> seconds
+                    <div className={"timerLine"}> 
+                    <div className={"timeUnit"}><Timer.Hours /> hours </div>
+                    <div className={"timeUnit"}><Timer.Minutes /> minutes </div>
+                    <div className={"timeUnit"}><Timer.Seconds /> seconds </div>
                     </div>
                     <div>
                         <button onClick={start}>Start</button>

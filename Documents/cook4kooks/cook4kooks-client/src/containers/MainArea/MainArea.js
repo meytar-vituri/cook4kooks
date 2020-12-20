@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import JsonData from '../../data/data.json';
-import {setRecipe, setTimerSteps, requestRecipesList} from './actions';
+import {setRecipe, setTimerSteps, requestRecipesList, requestRecipesByTag} from './actions';
 import {Switch, Route} from 'react-router-dom';
 import About from '../../components/About';
 import AboutMe from '../../components/AboutMe';
@@ -26,18 +25,16 @@ const mapDispatchToProps = (dispatch) =>{
   return{
     onTimerCreate: (timerSteps) => dispatch(setTimerSteps(timerSteps)),
     onRecipeChange: (recipe) => dispatch(setRecipe(recipe)),
-    onRecipesListRequest: () => dispatch(requestRecipesList())
+    onRecipesListRequest: () => dispatch(requestRecipesList()),
+    onRecipeListByTagRequest: (tag) => dispatch(requestRecipesByTag(tag))
   }
 }
 
 class MainArea extends Component {
-  state = {
-    landingPageData: {},
-    recipes: []
-  }
 
   render() {
-    const {onRecipeChange, onTimerCreate, recipe, onRecipesListRequest, recipesList} = this.props;
+    const {onRecipeChange, onTimerCreate, recipe, onRecipesListRequest, recipesList, onRecipeListByTagRequest} = this.props;
+    console.log(recipesList)
     return (
       <div>
           <Switch>
