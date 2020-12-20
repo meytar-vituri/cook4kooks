@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, Router} from 'react-router-dom';
 
-const Navigation = (props) => {
+const Navigation = ({onRecipesListRequest, onRecipesListByTagRequest}) => {
     return (
       <nav id="menu" className="navbar navbar-default ">  {/* add  'navbar-fixed-top' to keep it on top*/}
         <div className="container collapse navbar-collapse" >
@@ -13,10 +13,18 @@ const Navigation = (props) => {
                   <Link to={"/aboutMe"}>About Me</Link>
                 </li>
                 <li>
-                    <Link to={"/Recipes"} className="page-scroll">Recipes</Link>
+                    <Link to={"/Recipes"} 
+                      className="page-scroll"
+                      onClick={onRecipesListRequest()}>
+                      Recipes
+                      </Link>
                     <ul className="dropdown">
-                      <li><a href="#"> basic</a></li>
-                      <li><a href="#"> South East Asian</a></li>
+                      <li><Link 
+                            to={"/Recipes/recipes/vegan"}
+                            onClick={onRecipesListRequest()}>
+                            Vegan
+                            </Link></li>
+                      <li><Link to={"/Recipes/recipes/colorful"}>Colorful</Link></li>
                     </ul>
                 </li>
                 <li>

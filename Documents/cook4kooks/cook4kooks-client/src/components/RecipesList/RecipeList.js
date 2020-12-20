@@ -20,7 +20,7 @@ const RecipeList = ({getRecipesList, changeRecipe, recipesList}) => {
     }
 
     useEffect( () => {
-        getRecipes();
+        //getRecipes();
         
     }, []);
     return (
